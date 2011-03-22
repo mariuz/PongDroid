@@ -19,7 +19,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback
 	holder.addCallback(this);
 	setFocusable(true);
 	
-	// and instatiate the thread
+	// and instantiate the thread
 	_thread = new GameThread(holder, context, new Handler());
 	
 }
@@ -29,16 +29,15 @@ public boolean onKeyDown(int keyCode, KeyEvent msg){
 	return _thread.getGameState().keyPressed(keyCode,msg);
 }
 //Implemented as part of the SurfaceHolder.Callback interface
-@Override
+
 public void surfaceChanged(SurfaceHolder holder,int format,int width,int height){
 //mandatory	
 }
-@Override
 public void surfaceCreated(SurfaceHolder holder){
 	_thread.start();
 }
 
-@Override
+
 public void surfaceDestroyed(SurfaceHolder holder){
 	_thread.stop();
 }
